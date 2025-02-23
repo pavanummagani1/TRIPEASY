@@ -44,7 +44,7 @@
 /* Sidebar */
 .sidebar {
     position: fixed;
-    top: 0;
+    top: 4.3rem;
     right: -250px;
     width: 250px;
     height: 100vh;
