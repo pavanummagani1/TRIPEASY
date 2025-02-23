@@ -541,7 +541,7 @@ nav ul li a:hover {
     .btnContainer{
         display: flex;
         flex-direction: row;
-        justify-content: space-between;
+        justify-content: center;
     }
     .social-media-container{
         display: flex;

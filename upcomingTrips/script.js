@@ -14,9 +14,12 @@ let bookings = JSON.parse(localStorage.getItem("bookings"));
 console.log(bookings)
 let dataContainer = document.getElementById("dataContainer")
 function getResturants() {
-    dataContainer.innerHTML = ""
-    bookings.map(object => {
+    dataContainer.innerHTML = "";
+    let hasData = false;
+
+    bookings.forEach(object => {
         if (object.type === 'restaurant') {
+            hasData = true;
             let itemDiv = document.createElement('div');
             itemDiv.innerHTML = `
             <div class='imageContainer'>
@@ -32,16 +35,24 @@ function getResturants() {
             <div class='buttonContainer'>
                 <button class='delete-btn'>Delete</button>
             </div>
-            `
-            dataContainer.appendChild(itemDiv)
+            `;
+            dataContainer.appendChild(itemDiv);
             itemDiv.querySelector(".delete-btn").onclick = () => deleteData(object);
         }
-    })
+    });
+
+    if (!hasData) {
+        dataContainer.innerHTML = `<span>Currently, you don't have any restaurant bookings</span>`;
+    }
 }
+
 function getHotels() {
-    dataContainer.innerHTML = ""
-    bookings.map(object => {
+    dataContainer.innerHTML = "";
+    let hasData = false;
+
+    bookings.forEach(object => {
         if (object.type === 'hotel') {
+            hasData = true;
             let itemDiv = document.createElement('div');
             itemDiv.innerHTML = `
             <div class='imageContainer'>
@@ -57,16 +68,24 @@ function getHotels() {
             <div class='buttonContainer'>
                 <button class='delete-btn'>Delete</button>
             </div>
-            `
-            dataContainer.appendChild(itemDiv)
+            `;
+            dataContainer.appendChild(itemDiv);
             itemDiv.querySelector(".delete-btn").onclick = () => deleteData(object);
         }
-    })
+    });
+
+    if (!hasData) {
+        dataContainer.innerHTML = `<span>Currently, you don't have any hotel bookings</span>`;
+    }
 }
+
 function getLocations() {
-    dataContainer.innerHTML = ""
-    bookings.map((object,index) => {
+    dataContainer.innerHTML = "";
+    let hasData = false;
+
+    bookings.forEach((object, index) => {
         if (object.type === 'place') {
+            hasData = true;
             let itemDiv = document.createElement('div');
             itemDiv.innerHTML = `
             <div class='imageContainer'>
@@ -83,21 +102,26 @@ function getLocations() {
             <div class='buttonContainer'>
                 <button class='delete-btn'>Delete</button>
             </div>
-            `
-            dataContainer.appendChild(itemDiv)
-            itemDiv.querySelector(".delete-btn").onclick = () => deleteData(object,index);
+            `;
+            dataContainer.appendChild(itemDiv);
+            itemDiv.querySelector(".delete-btn").onclick = () => deleteData(object, index);
         }
-    })
+    });
 
+    if (!hasData) {
+        dataContainer.innerHTML = `<span>Currently, you don't have any location bookings</span>`;
+    }
 }
 
-function deleteData(obj,index){
+function deleteData(obj, index) {
     bookings.splice(index, 1);
     localStorage.setItem("bookings", JSON.stringify(bookings));
     getLocations();
-    getHotels()
-    getResturants()
+    getHotels();
+    getResturants();
 }
-getResturants()
-getHotels()
-getLocations()
+
+// Initial Calls
+getResturants();
+getHotels();
+getLocations();
