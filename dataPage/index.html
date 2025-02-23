@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <!-- Owl Carousel CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
+
+    <!-- jQuery (Required) -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Owl Carousel JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <!-- Navbar Section -->
+        <nav>
+            <a href="" class="logo">TRIP EASY</a>
+            <ul class="nav-items">
+                <li><a href="../dashboard/index.html" class="active">Home</a></li>
+                <li><a href="#footer">About</a></li>
+                <li><a href="../upcomingTrips/index.html">CheckList</a></li>
+                <li><a href="">Profile</a></li>
+            </ul>
+            <span class="hamburger" id="hamburger" onclick="onclickHamburger()"><ion-icon
+                    name="reorder-three-outline"></ion-icon></span>
+            <ul class="sidebar" id="sidebar">
+                <li class="sidebarItem"><a href="../dashboard/index.html">Home</a></li>
+                <li class="sidebarItem"><a href="#footer">About</a></li>
+                <li class="sidebarItem"><a>CheckList</a></li>
+                <li class="sidebarItem"><a href="">Profile</a></li>
+            </ul>
+        </nav>
+
+        <div id="searchContainer">
+            <span id="dynamicTitle">Search Places to eat</span>
+            <div id="searchbarContainer">
+                <ion-icon name="search-outline" class="icon"></ion-icon>
+                <input type="text" placeholder="Attraction, Activity, Destination">
+                <button>Search</button>
+            </div>
+            <div id="btnContainer"></div>
+        </div>
+    </header>
+    <!-- Data Showig Container -->
+    <div id="dataContainer">
+        <div class="loader" id="loader"></div>
+    </div>
+
+    <footer class="footer" id="footer">
+        <div class="about-container">
+            <div class="section">
+                <span class="about-title">Why TRIP EASY?</span>
+                <span class="about-desc">MakeMyTrip has been a pioneer in the travel industry since 2000, providing
+                    excellent offers, airfares, discounts, and a seamless booking experience. Whether booking flights,
+                    hotels, or holiday packages, our platform is designed to make travel easy and affordable for
+                    everyone.</span>
+            </div>
+            <div class="section">
+                <span class="about-title">Find Great Restaurants</span>
+                <span class="about-desc">Looking for great food? Plan your travel with MakeMyTrip and explore the best
+                    restaurants with great deals, discounts, and more. We cater to your culinary cravings wherever you
+                    go.</span>
+            </div>
+            <div class="section">
+                <span class="about-title">Book Hotels with Plan it Out</span>
+                <span class="about-desc">Book affordable hotels with us. We offer exclusive discounts, competitive
+                    prices, and instant booking confirmations. Your comfort is our priority.</span>
+            </div>
+        </div>
+
+        <div class="social-media-container">
+            <div class="social-icons">
+                <a href="https://www.facebook.com/" target="_blank"><ion-icon name="logo-facebook"></ion-icon></a>
+                <a href="https://x.com/i/flow/login?mx=2" target="_blank"><ion-icon name="logo-twitter"></ion-icon></a>
+                <a href="https://www.instagram.com/" target="_blank"><ion-icon name="logo-instagram"></ion-icon></a>
+            </div>
+            <div class="copyrights-container">
+                <span class="copyright">© 2025 Plan It Out PVT.LTD.</span>
+                <span class="locations">Country: India, Locations: HYD, BEN, MUM, DEL, CHE</span><br>
+                <span>Designed and Developed By PAVAN UMMAGANI :) </span>
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- BOOK NOW MODAL -->
+    <div id="modalContainer" class="modal">
+        <div class="modal-content">
+            <span class="close"><ion-icon name="close-outline"></ion-icon></span>
+            <h2 id="modalTitle">Booking Confirmation</h2>
+            <!-- <label for="title">Title</label>
+            <input type="text" id="title"> -->
+            <label for="date">DATE</label>
+            <input type="date" id="date">
+            <label for="payment">PAYMENT MODES</label>
+            <select name="" id="payment">
+                <option value="cash">CASH</option>
+                <option value="UPI">UPI</option>
+                <option value="cards">CREDIT & DEBIT Cards</option>
+            </select>
+            <p id="modalMessage">Do you want to proceed?</p>
+            <button id="confirmBtn" onclick="confrimTrip()">Confirm</button>
+            <button id="cancelBtn">Cancel</button>
+        </div>
+    </div>
+    <span id="bookingconfrimMessage"></span>
+
+    <!-- ADD TO CHECKLIST MODAL -->
+    <div id="checklistModalContainer" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="checklistModalTitle">ADD TO CHECKLIST</h2>
+            <p id="checklistModalMessage">Do you want to proceed?</p>
+            <button id="checklistConfirmBtn" onclick="checklistConfrimTrip()">Confirm</button>
+            <button id="checklistCancelBtn">Cancel</button>
+        </div>
+    </div>
+    <span id="checklistconfrimMessage"></span>
+
+    <script src="./script.js"></script>
+    <!-- <script src="./pagination.js"></script> -->
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>

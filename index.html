@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>TRIP EASY</title>
+</head>
+
+<body>  
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <span>TRIP ESAY</span>
+            </div>
+            <div class="nav-items">
+                <button onclick="loginAlert()">Plan a Trip</button>
+                <button onclick="loginAlert()">Checklist</button>
+                <button onclick="onLogin()">SignUp/Login</button>
+            </div>
+            <span class="hamburger" onclick="onclickHamburger()"><ion-icon name="reorder-three-outline"></ion-icon></span>
+
+            <div class="sidebar" id="sidebar">
+                <button onclick="loginAlert()">Plan a Trip</button>
+                <button onclick="loginAlert()">Checklist</button>
+                <button onclick="onLogin()">SignUp/Login</button>
+            </div>
+        </nav>
+        <div class="video-container">
+            <video class="banner-video" autoplay loop muted plays-inline>
+                <source src="./images/india.mp4" type="video/mp4">
+            </video>
+        </div>
+    </header>
+
+    <div class="banner-card">
+        <div class="banner-text">
+            <span>Want to Go Out? We Plan it For You!</span>
+            <button onclick="loginAlert()">Plan Your Trip</button>
+        </div>
+        <div class="banner-image">
+            <img src="./images/get-your-visa.jpg" alt="Visa Image">
+        </div>
+    </div>
+    
+    <div class="locations-container">
+        <span class="locations-title">We are Available @ Locations</span>
+        <div class="loader" id="locationLoader"></div>
+        <div class="locations" id="locations"></div>
+    </div>
+
+    <div class="popular-container">
+        <span>POPULAR RESTAURANTS</span>
+        <div class="loader" id="restaurantLoader"></div>
+        <div id="restaurantNames"></div>
+        <div id="restaurants"></div>
+    </div>
+
+    <div class="popular-container">
+        <span>POPULAR HOTELS</span>
+        <div class="loader" id="hotelLoader"></div>
+        <div id="hotelNames"></div>
+        <div id="hotels"></div>
+    </div>
+
+    <div class="popular-container">
+        <span>POPULAR LOCATIONS</span>
+        <div class="loader" id="popularLocationLoader"></div>
+        <div id="locationNames"></div>
+        <div id="popularLocations"></div>
+    </div>
+
+    <footer class="footer">
+        <div class="about-container">
+            <div class="section">
+                <span class="about-title">Why TRIP EASY?</span>
+                <span class="about-desc">TRIP EASY has been a pioneer in the travel industry since 2000, providing
+                    excellent offers, airfares, discounts, and a seamless booking experience. Whether booking flights,
+                    hotels, or holiday packages, our platform is designed to make travel easy and affordable for
+                    everyone.</span>
+            </div>
+            <div class="section">
+                <span class="about-title">Find Great Restaurants</span>
+                <span class="about-desc">Looking for great food? Plan your travel with Trip easy and explore the best
+                    restaurants with great deals, discounts, and more. We cater to your culinary cravings wherever you
+                    go.</span>
+            </div>
+            <div class="section">
+                <span class="about-title">Book Hotels with TRIP EASY</span>
+                <span class="about-desc">Book affordable hotels with us. We offer exclusive discounts, competitive
+                    prices, and instant booking confirmations. Your comfort is our priority.</span>
+            </div>
+        </div>
+
+        <div class="social-media-container">
+            <div class="social-icons">
+                <a href="https://www.facebook.com/" target="_blank"><ion-icon name="logo-facebook"></ion-icon></a>
+                <a href="https://x.com/i/flow/login?mx=2" target="_blank"><ion-icon name="logo-twitter"></ion-icon></a>
+                <a href="https://www.instagram.com/" target="_blank"><ion-icon name="logo-instagram"></ion-icon></a>
+            </div>
+            <div class="copyrights-container">
+                <span class="copyright">© 2025 TRIPEASY.PVT.LID</span>
+                <span class="locations">Country: India, Locations: HYD, BEN, MUM, DEL, CHE</span><BR></BR>
+                <span>Designed and Developed By PAVAN UMMAGANI :) </span>
+            </div>
+        </div>
+    </footer>
+    <marquee behavior="" direction="left" class="loginalert" id="loginAlert">LOGIN/REGISTER TO EXPERICENCE OUR SERVICES</marquee>
+    <script src="./script.js"></script>
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+
+</html>

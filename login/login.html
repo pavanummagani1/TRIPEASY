@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="login.css">
+    <script src="./script.js" defer></script>
+    <title>Login</title>
+</head>
+<body>
+    <span class="tagline">Your Journey, Pefectly Planned 🗺️</span>
+    <div class="logincontainer">
+        <!-- LoginImageContainer -->
+        <div class="loginImageContainer">
+            <img src="../images/Roadblock-386x540-TTBL-13Jan.jpg" alt="">
+        </div>
+        <div class="dataContainer">
+            <!--  -->
+            <div class="buttonContainer">
+                <button class="loginBtn" onclick="login()">LOGIN</button>
+                <button class="registerBtn" onclick="register()">REGISTER</button>
+            </div>
+            <!-- formcontainer -->
+            <div class="formContainer">
+                <!-- login -->
+                <div class="loginformContainer" id="loginformContainer">
+                    <form action="" id="loginForm">
+                        <label for="loginEmail">Email</label>
+                        <input type="email" id="loginEmail" placeholder="Enter Your Email">
+                        <p class="errorMsg" id="loginEmailErrMsg"></p>
+                        <label for="loginPassword">Password</label>
+                        <input type="password" id="loginPassword" placeholder="Enter your Password">
+                        <p class="errorMsg" id="loginPasswordErrMsg"></p>
+                        <button type="submit" class="login">Submit</button>
+                    </form>
+                </div>
+                <!--Register Form  -->
+                <div class="registerContainer" id="registerContainer">
+                    <form action="" id="registerForm">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" placeholder="Enter Your Email">
+                        <p class="errorMsg" id="emailErrMsg"></p>
+                        <label for="password">Password</label>
+                        <input type="password" id="password" placeholder="Enter Your Password">
+                        <p class="errorMsg" id="passwordErrMsg"></p>
+                        <label for="password">Confrim Password</label>
+                        <input type="password" id="confrimPassword" placeholder="confrim Your Password">
+                        <p class="errorMsg" id="confrimErrMsg"></p>
+                        <button type="submit" class="login">Submit</button>
+                    </form>
+                </div>
+            </div>
+            <!-- <span  class="skipLogin"><a href="../dashboard/index.html">SKIP LOGIN</a></span> -->
+        </div>
+    </div>
+    <script type="module">
+
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.2.0/firebase-app.js";
+        import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from " https://www.gstatic.com/firebasejs/11.2.0/firebase-auth.js";
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyCqt0JmO98oADTq56etkXsZXg9brqTccvA",
+            authDomain: "planitout7997.firebaseapp.com",
+            projectId: "planitout7997",
+            storageBucket: "planitout7997.firebasestorage.app",
+            messagingSenderId: "782086998530",
+            appId: "1:782086998530:web:d94a9f18dd610653dd351b"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        function showToast(message, success = true) {
+            const toast = document.createElement('div');
+            toast.className = `toast ${success ? 'success' : 'error'}`;
+            toast.textContent = message;
+
+            document.body.appendChild(toast);
+
+            // Show toast
+            setTimeout(() => {
+                toast.classList.add('show');
+            }, 10);
+
+            // Remove toast after 3 seconds
+            setTimeout(() => {
+                toast.classList.remove('show');
+                setTimeout(() => {
+                    document.body.removeChild(toast);
+                }, 300);
+            }, 3000);
+        }
+
+        //register
+        registerForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            const submitButton = event.target.querySelector('button');
+            submitButton.disabled = true;
+            submitButton.innerHTML = '<div class="loader"></div>';
+
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value.trim();
+            const confirmPassword = document.getElementById('confrimPassword').value.trim();
+
+            if (password !== confirmPassword) {
+                showToast("Passwords do not match", false); // Error toast
+                submitButton.disabled = false;
+                submitButton.innerHTML = 'Submit';
+                return;
+            }
+
+            const auth = getAuth();
+            createUserWithEmailAndPassword(auth, email, password)
+                .then(() => {
+                    showToast("User registered successfully!", true); // Success toast
+                })
+                .catch((error) => {
+                    showToast(`Registration failed: ${error.message}`, false); // Error toast
+                })
+                .finally(() => {
+                    submitButton.disabled = false;
+                    submitButton.innerHTML = 'Submit';
+                    email.value = ''
+                    password.value = ''
+                    confirmPassword.value = ''
+                });
+        });
+
+        //LOGIN
+        loginForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            const submitButton = event.target.querySelector('button');
+            submitButton.disabled = true;
+            submitButton.innerHTML = '<div class="loader"></div>';
+
+            const email = document.getElementById('loginEmail').value.trim();
+            const password = document.getElementById('loginPassword').value.trim();
+
+            if (email === '' || password === '') {
+                showToast("Please fill out all fields", false); // Error toast
+                submitButton.disabled = false;
+                submitButton.innerHTML = 'Submit';
+                email.value = ''
+                password.value = ''
+                return;
+            }
+
+            const auth = getAuth();
+            signInWithEmailAndPassword(auth, email, password)
+                .then(() => {
+                    showToast("User logged in successfully!", true); // Success toast
+                    window.location.href = '../dashboard/index.html'
+                })
+                .catch((error) => {
+                    showToast(`Login failed: ${error.message}`, false); // Error toast
+                })
+                .finally(() => {
+                    submitButton.disabled = false;
+                    submitButton.innerHTML = 'Submit';
+                    email.value = ''
+                    password.value = ''
+                });
+        });
+
+    </script>
+</body>
+
+</html>
+
+
+

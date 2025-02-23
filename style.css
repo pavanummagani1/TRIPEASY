@@ -1,0 +1,491 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scrollbar-width: none;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+    color: #333;
+}
+
+/* Navbar Styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 10px 20px;
+    color: #fff;
+    position: sticky;
+    width: 100%;
+    top: 0;
+    z-index: 10;
+}
+
+.navbar .logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.navbar .nav-items button {
+    background-color: white;
+    color: black;
+    border: 1px solid black;
+    padding: 8px 15px;
+    margin-left: 15px;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.navbar .nav-items button:hover {
+    background-color: black;
+    color: white;
+}
+
+/* Video Banner */
+.video-container {
+    position: relative;
+    overflow: hidden;
+    height: 60vh;
+}
+
+.video-container .banner-video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Banner Card */
+.banner-card {
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 15px;
+    max-width: 1200px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.banner-card .banner-text {
+    flex: 1;
+    padding-right: 20px;
+}
+
+.banner-card .banner-text span {
+    display: block;
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.banner-card .banner-text button {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    background-color: #ff6f61;
+    color: #fff;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.banner-card .banner-text button:hover {
+    background-color: #e85a50;
+}
+
+.banner-card .banner-image img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 15px;
+}
+
+/* Locations Container */
+.locations-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+    width: 80%;
+    margin: auto;
+    text-align: center;
+}
+
+#locationLoader {
+    align-self: center;
+}
+
+.locations-container .locations-title {
+    display: block;
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #444;
+}
+
+/* Locations Grid */
+#locations {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    /* 5 containers in a row */
+    gap: 20px;
+}
+
+/* Individual Location Cards */
+#locations div {
+    background-size: cover;
+    background-position: center;
+    height: 200px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+#locations div:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+#locations div span {
+    display: block;
+    text-align: center;
+    padding: 10px;
+    background: #444444c3;
+    width: 100%;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bold;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* Popular Containers */
+.popular-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 90%;
+    margin: 20px auto;
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.popular-container span {
+    display: block;
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #444;
+}
+
+#restaurantNames,
+#hotelNames,
+#locationNames {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+#locationNames button,
+#hotelNames button,
+#restaurantNames button {
+    background-color: #fff;
+    color: #333;
+    border: 1px solid #333;
+    border-radius: 6px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#locationNames button:hover,
+#hotelNames button:hover,
+#restaurantNames button:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+/* Restaurants, Hotels, and Popular Locations Grid */
+#restaurants,
+#hotels,
+#popularLocations {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    /* 5 containers in a row */
+    gap: 20px;
+}
+
+#restaurants div h3,
+#hotels div h3,
+#popularLocations div h3 {
+    background-color: #444444c3;
+    color: #fff;
+    width: 100%;
+}
+/* Cards for Restaurants, Hotels, and Popular Locations */
+#restaurants div,
+#hotels div,
+#popularLocations div {
+    background-size: cover;
+    background-position: center;
+    height: 250px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    color: white;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#restaurants div:hover,
+#hotels div:hover,
+#popularLocations div:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+
+/* Footer Styling */
+.footer {
+    background-color: #f3f3f3;
+    padding: 40px 20px;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.about-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 10px;
+    width: 350px;
+}
+
+.section .about-title {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.section .about-desc {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #666;
+}
+
+/* Social Media Section */
+.social-media-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 20px;
+    height: 100px;
+    color: white;
+}
+
+.social-icons {
+    display: flex;
+    gap: 20px;
+}
+
+.social-icons ion-icon {
+    font-size: 1.5rem;
+    color: white;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-icons ion-icon:hover {
+    transform: scale(1.2);
+    color: #ffdd59;
+}
+
+.copyrights-container {
+    text-align: right;
+    color: #ffffff;
+}
+
+.copyrights-container span {
+    font-size: 0.9rem;
+}
+
+
+.loginalert {
+    background-color: #ed103d;
+    color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    display: none;
+    width: 50vw;
+    position: fixed;
+    top: 50%;
+    right: 20px;
+    z-index: 999;
+}
+
+.hamburger {
+    font-size: 2rem;
+    display: none;
+}
+.sidebar {
+    display: none; /* Initially hidden */
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+    position: absolute;
+    background-color: #333;
+    top: 60px; /* Adjust as per navbar height */
+    right: 0;
+    width: 200px;
+    height: 100vh;
+    padding: 10px;
+    transition: height 0.4s ease;
+}
+
+/* Show Sidebar */
+.sidebar.show {
+    display: flex;
+}
+
+.sidebar button{
+    padding: 10px;
+    width: 70%;
+}
+
+/* HTML: <div class="loader"></div> */
+.loader {
+    width: 90px;
+    height: 12px;
+    --c:#000 50%,#0000 0;
+    background: 
+      linear-gradient(90deg ,var(--c)) 0 0%,
+      linear-gradient(-90deg,var(--c)) 0 50%,
+      linear-gradient(90deg ,var(--c)) 0 100%;
+    background-size: 8px calc(100%/3);
+    background-repeat: repeat-x;
+    animation: l8 .25s infinite linear;
+  }
+  @keyframes l8 {
+      100% {background-position: -8px 0%,-8px 50%,-8px 100%}
+  }
+
+
+
+
+@media (max-width: 768px) {
+    .nav-items {
+        display: none;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    .sidebar {
+        display: none;
+        position: absolute;
+        /* background-color: #333; */
+        height: 100vh;
+    }
+    .navbar {
+        flex-direction: row;
+    }
+
+    .banner-card {
+        flex-direction: column;
+        gap: 1.2rem;
+        align-items: center;
+    }
+    .banner-text{
+        display: flex;
+        flex-direction: column;
+        /* justify-content: center; */
+        align-items: center;
+    }
+
+    .locations-container,
+    .popular-container {
+        width: 100%;
+    }
+    #locations{
+        padding: 2em;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        /* align-items: center; */
+        /* width: 100%; */
+    }
+    #locationNames, #hotelNames, #restaurantNames{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    #popularLocations, #hotels, #restaurants{
+        display: flex;
+        flex-direction: column;
+        /* flex-wrap: wrap; */
+        width: 85%;
+    }
+    .social-media-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        height: 100%;
+        padding: 1.2rem;
+    }
+    .about-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .copyrights-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+/* Adjust the grid layout on different screen sizes */
+@media (max-width: 1024px) {
+    #locations,
+    #restaurants,
+    #hotels,
+    #popularLocations {
+        grid-template-columns: repeat(3, 1fr);
+        /* 3 containers for medium screens */
+    }
+}

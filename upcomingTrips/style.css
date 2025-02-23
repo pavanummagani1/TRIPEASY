@@ -1,0 +1,186 @@
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Navbar Styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #1e293b;
+    color: white;
+    padding: 15px 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.navbar .title {
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: 1px;
+}
+
+.navItems {
+    display: flex;
+    gap: 20px;
+}
+
+.navItems a {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.navItems a:hover {
+    color: #38bdf8;
+}
+
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: -250px;
+    width: 250px;
+    height: 100vh;
+    background-color: #1e293b;
+    color: white;
+    padding-top: 60px;
+    transition: 0.3s ease-in-out;
+}
+
+.sidebar .sidebarItems {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding-left: 20px;
+}
+
+.sidebar .sidebarItems a {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+.sidebar .sidebarItems a:hover {
+    color: #38bdf8;
+}
+
+.hamburger {
+    display: none;
+    font-size: 28px;
+    cursor: pointer;
+}
+
+/* Main Container */
+.mainContainer {
+    padding: 40px 5%;
+    text-align: center;
+}
+
+/* Buttons */
+.btnContainer {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.btnContainer button {
+    padding: 12px 18px;
+    font-size: 16px;
+    font-weight: 500;
+    border: none;
+    cursor: pointer;
+    background: #1e293b;
+    color: white;
+    border-radius: 8px;
+    transition: 0.3s;
+}
+
+.btnContainer button:hover {
+    background: #38bdf8;
+}
+
+/* Data Display Container */
+#dataContainer {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+/* Cards */
+.imageContainer img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.detailsContainer {
+    background: white;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+
+.detailsContainer span {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+.detailsContainer b {
+    color: #1e293b;
+}
+
+/* Delete Button */
+.buttonContainer {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.delete-btn {
+    padding: 8px 12px;
+    background-color: #e63946;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.delete-btn:hover {
+    background-color: #c92a35;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+
+    .navItems {
+        display: none;
+    }
+
+    .sidebar {
+        padding-top: 20px;
+    }
+
+    .btnContainer {
+        flex-direction: column;
+    }
+
+    #dataContainer {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+}

@@ -1,0 +1,651 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* font-family: sans-serif; */
+    font-family: 'Noto Sans', sans-serif;
+    scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+video::-webkit-media-controls {
+    display: none !important;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style-type: none;
+    text-decoration: none;
+}
+
+/* Navbar Section */
+nav {
+    width: 100%;
+    height: auto;
+    background: rgba(0, 0, 0, 0.25);
+    backdrop-filter: blur(2px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 80px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+}
+
+.logo {
+    font-size: 1.5rem;
+    color: #fff;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+    gap: 1.3rem;
+}
+
+.navbar li a {
+    font-size: 1.1rem;
+    color: #c0c0c0;
+    font-weight: 450;
+    text-decoration: none;
+    transition: .5s ease-out;
+}
+
+nav ul li a.active,
+nav ul li a:hover {
+    font-size: 1.15rem;
+    font-weight: 500;
+    color: #eeeeee;
+}
+
+.hamburger {
+    display: none;
+    color: #fff;
+    font-size: 2rem;
+
+}
+
+/* Carousel */
+.carouselItem {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Video */
+.carouselItem video {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+}
+
+/* Hero Section */
+.heroSection,
+.hero_content_section {
+    width: 50%;
+    position: absolute;
+    top: 50%;
+    left: 5%;
+    transform: translateY(-50%);
+    color: white;
+    z-index: 2;
+}
+
+.hero_data {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+}
+
+/* Hero Text */
+.hero_title {
+    font-size: 3rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.hero_desc {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+/* Explore Button */
+.explore_btn {
+    background: #ff5733;
+    color: white;
+    padding: 12px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.explore_btn:hover {
+    background: #e04e2a;
+}
+
+.sidebar {
+    display: none;
+}
+
+
+
+/* Locations Container */
+.locations-container {
+    width: 80%;
+    margin: 2em auto;
+    text-align: center;
+}
+
+.locations-container .locations-title {
+    display: block;
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #444;
+}
+
+/* Locations Grid */
+#locations {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 20px;
+}
+
+/* Individual Location Cards */
+#locations div {
+    background-size: cover;
+    background-position: center;
+    height: 200px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: relative;
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+#locations div:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+
+#locations div span {
+    display: block;
+    text-align: center;
+    padding: 10px;
+    background: #444444c3;
+    width: 100%;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: bold;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+}
+
+
+/* Popular Containers */
+.popular-container {
+    width: 90%;
+    margin: 20px auto;
+    text-align: center;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.popular-container span {
+    display: block;
+    font-size: 1.8rem;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #444;
+}
+
+#restaurantNames,
+#hotelNames,
+#locationNames {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+#locationNames button,
+#hotelNames button,
+#restaurantNames button {
+    background-color: #fff;
+    color: #333;
+    border: 1px solid #333;
+    border-radius: 6px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+#locationNames button:hover,
+#hotelNames button:hover,
+#restaurantNames button:hover {
+    background-color: #333;
+    color: #fff;
+}
+
+/* Restaurants, Hotels, and Popular Locations Grid */
+#restaurants,
+#hotels,
+#popularLocations {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    /* 5 containers in a row */
+    gap: 20px;
+}
+
+#restaurants div h3,
+#hotels div h3,
+#popularLocations div h3 {
+    margin: 0px;
+    font-size: 1em;
+    padding: 10px;
+    background-color: #444444c3;
+    color: #fff;
+    width: 100%;
+}
+
+/* Cards for Restaurants, Hotels, and Popular Locations */
+#restaurants div,
+#hotels div,
+#popularLocations div {
+    background-size: cover;
+    background-position: center;
+    height: 250px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    color: white;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+#restaurants div:hover,
+#hotels div:hover,
+#popularLocations div:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
+
+
+/* Footer Styling */
+.footer {
+    background-color: #f3f3f3;
+    padding: 40px 20px;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.about-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.section {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 10px;
+    width: 350px;
+}
+
+.section .about-title {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.section .about-desc {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #666;
+}
+
+/* Social Media Section */
+.social-media-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333;
+    padding: 20px;
+    height: 100px;
+    color: white;
+}
+
+.social-icons {
+    display: flex;
+    gap: 20px;
+}
+
+.social-icons ion-icon {
+    font-size: 1.5rem;
+    color: white;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-icons ion-icon:hover {
+    transform: scale(1.2);
+    color: #ffdd59;
+}
+
+.copyrights-container {
+    text-align: right;
+    color: #ffffff;
+}
+
+.copyrights-container span {
+    font-size: 0.9rem;
+}
+
+
+
+.loginalert {
+    background-color: #ed103d;
+    color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    display: none;
+    position: fixed;
+    top: 120px;
+    right: 20px;
+    z-index: 999;
+}
+
+.loader {
+    width: 50px;
+    aspect-ratio: 1;
+    display: none;
+  }
+  .loader::before,
+  .loader::after{
+    content: "";
+    grid-area: 1/1;
+    border-radius: 50%;
+    background: repeating-conic-gradient(#0000,#000 1deg 18deg,#0000 20deg 36deg);
+    -webkit-mask:repeating-radial-gradient(farthest-side,#000 0 10%,#0000 0 20%);
+    animation: l10 4s infinite linear;
+  }
+  .loader::after{
+    -webkit-mask:repeating-radial-gradient(farthest-side,#0000 0 10%,#000 0 20%);
+    animation-direction: reverse;
+  }
+  @keyframes l10 {
+    100% {transform:rotate(.5turn)}
+  }
+
+
+
+/* Modal container */
+.yourTrips {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 400px;
+    background-color: #f9f9f9;
+    border: 2px solid #000;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 16px;
+    z-index: 1000;
+    display: none; /* Hidden by default */
+  }
+  
+  /* Button container */
+  .btnsContainer {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 16px;
+  }
+  
+  /* Buttons */
+  .btnsContainer button {
+    flex: 1;
+    margin: 0 4px;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #000;
+    border-radius: 4px;
+    background-color: #fff;
+    cursor: pointer;
+    transition: background-color 0.3s, box-shadow 0.3s;
+  }
+  
+  .btnsContainer button:hover {
+    background-color: #e0e0e0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Saved data area */
+  .savedData {
+    height: 200px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #fff;
+    padding: 8px;
+    overflow-y: auto;
+  }
+  
+  /* Close button */
+  .yourTrips::before {
+    content: "✖";
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    color: #000;
+  }
+  
+/* Responsiveness */
+@media (max-width: 1024px) {
+
+    #locations,
+    #restaurants,
+    #hotels,
+    #popularLocations {
+        grid-template-columns: repeat(3, 1fr);
+        /* 3 containers for medium screens */
+    }
+}
+
+@media (max-width: 992px) {
+
+    .heroSection,
+    .hero_content_section {
+        width: 70%;
+        left: 10%;
+    }
+
+    .hero_title {
+        font-size: 2.5rem;
+    }
+
+    .hero_desc {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 768px) {
+    nav{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    .hamburger {
+        display: block;
+        color: white;
+        font-size: 2rem;
+        cursor: pointer;
+    }
+
+    .navbar li {
+        display: none;
+    }
+
+    .sidebar {
+        display: none;
+        position: fixed;
+        top: 85px;
+        right: 0;
+        width: 200px;
+        height: 100vh;
+        background: #333;
+        flex-direction: column;
+        align-items: flex-start;
+        padding-top: 60px;
+    }
+
+    .sidebar.show {
+        display: flex;
+    }
+
+
+    .sidebar li {
+        margin: 5px 0;
+    }
+
+    .sidebar li a {
+        color: #000;
+        font-size: 1.2rem;
+        text-decoration: none;
+        background-color: #fff;
+        padding: 10px;
+        border-radius: 10px;
+    }
+
+
+    .logo {
+        font-size: 1.3rem;
+    }
+
+    .heroSection,
+    .hero_content_section {
+        width: 90%;
+        left: 5%;
+    }
+
+    .hero_title {
+        font-size: 2rem;
+    }
+
+    .hero_desc {
+        font-size: 0.9rem;
+    }
+
+    .explore_btn {
+        padding: 10px 15px;
+        font-size: 0.9rem;
+    }
+    
+    #locations,
+    #restaurants,
+    #hotels,
+    #popularLocations {
+        grid-template-columns: 1fr;
+        /* 1 container per row for small screens */
+    }
+    .banner-card {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .locations-container,
+    .popular-container {
+        width: 100%;
+    }
+    #locations,#popularLocations, #hotels, #restaurants{
+        padding: 2em;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        /* align-items: center; */
+        width: 95%;
+    }
+    #restaurantNames,#locationNames, #hotelNames{
+        display: flex;
+        flex-wrap: wrap;
+    }
+    .containers{
+        align-self: center;
+        width: 85%;
+    }
+    /* #popularLocations, #hotels, #restaurants{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 85%;
+    } */
+    .social-media-container{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        height: 100%;
+        padding: 1.2rem;
+    }
+    .about-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .copyrights-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .heroSection,
+    .hero_content_section {
+        width: 95%;
+        left: 2.5%;
+    }
+
+    .hero_title {
+        font-size: 1.8rem;
+    }
+
+    .hero_desc {
+        font-size: 0.8rem;
+    }
+
+    .explore_btn {
+        padding: 8px 12px;
+        font-size: 0.85rem;
+    }
+}

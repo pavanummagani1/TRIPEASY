@@ -1,0 +1,344 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url('../images/bg6.jpg');
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #e6f7ff; 
+    font-family: 'Arial', sans-serif;
+}
+
+/* Tagline Styling */
+.tagline {
+    font-size: 1.8rem; 
+    color: #fff;
+    margin-bottom: 20px;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 2px 2px 4px #00000033;
+}
+
+.logincontainer {
+    display: flex;
+    background-color: rgba(255, 255, 255, 0.3); 
+    backdrop-filter: blur(12px);
+    border-radius: 20px;
+    padding: 30px; 
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); 
+    width: 60%; 
+    max-width: 900px;
+}
+
+.loginImageContainer {
+    flex: 0 0 50%; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loginImageContainer img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px; 
+}
+
+.dataContainer {
+    flex: 0 0 50%;
+    padding-left: 60px;
+}
+
+.buttonContainer {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 30px;
+}
+
+
+button {
+    padding: 12px 25px; 
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+.loginBtn {
+    background-color: #006d77; 
+    color: #fff;
+}
+
+.registerBtn {
+    background-color: #ff6f61; 
+    color: #fff;
+}
+
+.formContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.loginformContainer{
+    margin-top: 3rem;
+}
+.registerContainer {
+    margin-top: 2rem;
+    display: none; 
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 8px; 
+    font-weight: bold;
+    color: #333; 
+}
+
+input[type="email"],
+input[type="password"] {
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    font-size: 1rem;
+}
+
+.login {
+    background-color: #ff6f61; 
+    color: #fff;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.login:hover {
+    background-color: #e85a50; 
+}
+.errorMsg{
+    text-align: center;
+    color: #ff0000;
+}
+
+button:disabled {
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+button .loader {
+    border: 2px solid transparent;
+    border-top: 2px solid white;
+    border-radius: 50%;
+    width: 12px;
+    height: 16px;
+    animation: spin 1s linear infinite;
+    display: inline-block;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.toast {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: opacity 0.3s, transform 0.3s;
+    z-index: 1000;
+    font-size: 14px;
+}
+
+.toast.success {
+    background-color: #4caf50; 
+}
+
+.toast.error {
+    background-color: #f44336;
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.skipLogin a{
+    color:#000;
+    text-decoration: none;
+    margin-top: 16px;
+    text-align: center;
+}
+
+/* Media Queries */
+
+/* 0px to 299px */
+@media (max-width: 299px) {
+    .logincontainer{
+        width: 100%;
+        padding: 1rem;
+    }
+    .loginImageContainer {
+        display: none; /* Hide image container */
+    }
+    .buttonContainer{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 1.5em;
+    }
+
+    .dataContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 90%; 
+        margin: auto;
+        padding: 1rem;
+    }
+
+    .formContainer {
+        margin-top: -2rem; 
+    }
+    input[type='email'],input[type='password']{
+        width: 80vw;
+    }
+
+}
+
+
+/* 300px to 600px */
+@media (min-width: 300px) and (max-width: 600px) {
+    input[type='email'],input[type='password']{
+        width: 80vw;
+    }
+    .logincontainer{
+        width: 100%;
+        padding: 1rem;
+    }
+    .loginformContainer, .registerContainer{
+        margin-top: -2rem;
+        width: 100%;
+    }
+    input{
+        width: 100%;
+    }
+
+    .loginImageContainer {
+        display: none; /* Hide image container */
+    }
+
+    .dataContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100vw; /* Center data container with proper margins */
+        margin: auto;
+        padding: 1.5rem;
+    }
+
+    .formContainer {
+        margin-top: 1.5rem; /* Maintain proper margin for forms */
+    }
+
+    .buttonContainer {
+        flex-direction: column; /* Stack buttons vertically */
+        gap: 1rem;
+    }
+}
+
+/* 601px to 800px */
+@media (min-width: 601px) and (max-width: 800px) {
+    input[type='email'],input[type='password']{
+        width: 100%;
+    }
+    .loginImageContainer {
+        display: none; /* Hide image container */
+    }
+
+    .dataContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 80%; /* Center data container with proper margins */
+        margin: auto;
+        padding: 2rem;
+    }
+
+    .formContainer {
+        margin-top: 2rem; /* Maintain proper margin for forms */
+    }
+
+    .buttonContainer {
+        flex-direction: row; /* Buttons in a row for more space */
+        gap: 1rem;
+    }
+}
+
+/* 801px to 1200px */
+@media (min-width: 801px) and (max-width: 1200px) {
+    .logincontainer {
+        flex-direction: row; /* Side by side layout */
+        align-items: center;
+        justify-content: center;
+    }
+
+    .buttonContainer{
+        gap: 1rem;
+    }
+    .loginImageContainer {
+        flex: 1; /* Show image container */
+        display: block;
+    }
+
+    .dataContainer {
+        flex: 1;
+        padding: 2rem;
+    }
+}
+
+/* 1201px and above */
+@media (min-width: 1201px) {
+    .logincontainer {
+        flex-direction: row; /* Side by side layout */
+        align-items: flex-start;
+        width: 70%;
+        margin: auto;
+    }
+
+    .loginImageContainer,
+    .dataContainer {
+        flex: 1; /* Both containers expand with screen size */
+    }
+
+    .dataContainer {
+        padding: 2.5rem; /* Adjust padding for larger screens */
+    }
+}
